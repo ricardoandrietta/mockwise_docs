@@ -1,0 +1,160 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Mock Data Generation API",
+    "description": "API for generating mock data with specific types and repetition",
+    "version": "1.0.0",
+    "contact": {
+      "name": "MockWise",
+      "url": "https://mockwise.dev"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://mockwise.dev/api",
+      "description": "Production server"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/generate": {
+      "post": {
+        "summary": "Generate mock data",
+        "description": "Generates mock data based on specified types and repetition count",
+        "operationId": "generateMockData",
+        "tags": [
+          "Mock Generation"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerateMockRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully generated mock data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "description": "By default, it returns an `array` with the requested data."
+                    },
+                    {
+                      "type": "object",
+                      "description": "Returns an `object` when `repeat = 1` AND `single_item = true`"
+                    }
+                  ]
+                },
+                "example": [
+                  {
+                    "first_name": "Talon",
+                    "last_name": "Kilback"
+                  }
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Unauthenticated."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GenerateMockRequest": {
+        "type": "object",
+        "required": [
+          "mock"
+        ],
+        "properties": {
+          "locale": {
+            "type": "string",
+            "default": "en_US",
+            "description": "Locale",
+            "example":  "pt_BR"
+          },
+          "repeat": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 1,
+            "description": "Number of mock data entries to generate",
+            "example": 1
+          },
+          "show_errors": {
+            "type": "boolean",
+            "description": "It adds the `errors` key to the response showing any found error in your schema",
+            "default": false
+          },
+          "single_item": {
+            "type": "boolean",
+            "description": "When 1, it returns a object, otherwise returns an array. if repeat > 1, it will always return an array",
+            "default": true
+          },
+          "wrap": {
+            "type": "string",
+            "description": "If set, it will wrap the response in the given wrap string",
+            "default": null
+          },
+          "mock": {
+            "type": "object",
+            "description": "Definition of mock data fields and their types, see the [Specification Tab](/mock_specification)",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "The type of mock data to generate, check out the [Specification Tab](/mock_specification)"
+              },
+              "params": {
+                "type": "array"
+              }
+            },
+            "example": {
+              "first_name": {
+                "type": "firstName"
+              },
+              "last_name": {
+                "type": "lastName"
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Mock Generation",
+      "description": "Endpoints for generating mock data"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "theme": "maple",
+  "name": "Mock Wise",
+  "colors": {
+    "primary": "#9834eb"
+  },
+  "logo": "/logo.svg",
+  "favicon": "/favicon.svg",
+  "background": {
+    "decoration": "gradient",
+    "color": {
+      "light": "#ffffff",
+      "dark": "#000000"
+    }
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "API References",
+        "openapi": "api_references/openapi.json"
+      },
+      {
+        "tab": "Mock Specification",
+        "pages": [
+          "mock_specification/mock_specification",
+          "mock_specification/nested_objects"
+        ]
+      },
+      {
+        "tab": "Available Types",
+        "pages": [
+          "available_types/available_types"
+        ]
+      }
+    ]
+  }
+}

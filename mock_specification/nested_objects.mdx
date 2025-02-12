@@ -1,0 +1,44 @@
+---
+title: "Nested Objects"
+sidebarTitle: "Nested Objects"
+description: "This shows how to nest `Mock` objects inside each other"
+---
+
+**The `type` accepts `mock`, so it generates a nested object**
+
+```json
+{
+  "person_name": {
+    "type": "firstName"
+  },
+  "phones": {
+    "type": "mock",
+    "params": {
+      "repeat": 3,
+      "mock": {
+        "phone_number": {
+          "type": "phoneNumber"
+        }
+      }
+    }
+  }
+}
+```
+
+It returns
+```json
+{
+  "person_name": "John",
+  "phones": [
+    {
+      "phone_number": "447.116.3957"
+    },
+    {
+      "phone_number": "1 (583) 480-8436"
+    },
+    {
+      "phone_number": "1-583-422-1269"
+    }
+  ]
+}
+```

@@ -1,0 +1,41 @@
+---
+title: "Mock Specification"
+sidebarTitle: "Mock object"
+description: "This is the specification for the `Mock` object"
+---
+
+The object `mock` receives an object.
+- The key will be field name
+- The value is an object
+  - `type` is required. [See available types](/available_types)
+  - `params` is optional
+```json
+{
+    "mock": {
+        "field_name": {
+            "type": see available types
+            "params": [
+                "param 1",
+                ["item 1", "item 2", ...],
+                ...
+            ]
+        }
+    }
+}
+```
+
+This is a simple example
+```json
+{
+    "person_name": {
+        "type": "firstName"
+    }
+}
+```
+
+It returns
+```json
+{
+    "person_name": "John"
+}
+```
