@@ -32,7 +32,7 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application/json": {
+            "application/x-www-form-urlencoded": {
               "schema": {
                 "$ref": "#/components/schemas/GenerateMockRequest"
               }
@@ -77,6 +77,19 @@
                 }
               }
             }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "error": "Invalid Argument: `schema` is required."
+                }
+              }
+            }
           }
         }
       }
@@ -87,58 +100,55 @@
       "GenerateMockRequest": {
         "type": "object",
         "required": [
-          "mock"
+          "schema"
         ],
         "properties": {
-          "locale": {
-            "type": "string",
-            "default": "en_US",
-            "description": "Locale",
-            "example":  "pt_BR"
-          },
-          "repeat": {
-            "type": "integer",
-            "minimum": 1,
-            "maximum": 100,
-            "default": 1,
-            "description": "Number of mock data entries to generate",
-            "example": 1
-          },
-          "show_errors": {
-            "type": "boolean",
-            "description": "It adds the `errors` key to the response showing any found error in your schema",
-            "default": false
-          },
-          "single_item": {
-            "type": "boolean",
-            "description": "When 1, it returns a object, otherwise returns an array. if repeat > 1, it will always return an array",
-            "default": true
-          },
-          "wrap": {
-            "type": "string",
-            "description": "If set, it will wrap the response in the given wrap string",
-            "default": null
-          },
-          "mock": {
+          "schema" : {
             "type": "object",
-            "description": "Definition of mock data fields and their types, see the [Specification Tab](/mock_specification)",
             "properties": {
-              "type": {
+              "locale": {
                 "type": "string",
-                "description": "The type of mock data to generate, check out the [Specification Tab](/mock_specification)"
+                "default": "en_US",
+                "description": "Locale",
+                "example":  "pt_BR"
               },
-              "params": {
-                "type": "array"
+              "repeat": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100,
+                "default": 1,
+                "description": "Number of mock data entries to generate",
+                "example": 1
+              },
+              "show_errors": {
+                "type": "boolean",
+                "description": "It adds the `errors` key to the response showing any found error in your schema",
+                "default": false
+              },
+              "single_item": {
+                "type": "boolean",
+                "description": "When 1, it returns a object, otherwise returns an array. if repeat > 1, it will always return an array",
+                "default": true
+              },
+              "wrap": {
+                "type": "string",
+                "description": "If set, it will wrap the response in the given wrap string",
+                "default": null
+              },
+              "mock": {
+                "type": "object",
+                "description": "For the definition of mock's properties, please see the [Specification Tab](/mock_specification)",
+                "example": {
+                  "first_name": {
+                    "type": "firstName"
+                  },
+                  "last_name": {
+                    "type": "lastName"
+                  }
+                }
               }
             },
-            "example": {
-              "first_name": {
-                "type": "firstName"
-              },
-              "last_name": {
-                "type": "lastName"
-              }
-            }
+            "required": ["mock"]
           }
         }
       }

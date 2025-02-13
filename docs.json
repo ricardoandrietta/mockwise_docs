@@ -32,7 +32,20 @@
       {
         "tab": "Available Types",
         "pages": [
-          "available_types/available_types"
+          "available_types/about",
+          "available_types/basic",
+          "available_types/barcode",
+          "available_types/color",
+          "available_types/date_time",
+          "available_types/file",
+          "available_types/html_lorem",
+          "available_types/internet",
+          "available_types/miscellaneous",
+          "available_types/numbers_strings",
+          "available_types/payment",
+          "available_types/text_paragraphs",
+          "available_types/uuid",
+          "available_types/version"
         ]
       }
     ]

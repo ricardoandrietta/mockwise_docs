@@ -1,0 +1,48 @@
+---
+title: "About"
+sidebarTitle: "About"
+---
+
+These section shows the available `type` for the `mock` object.
+
+**Note:** In all examples, it's using `en_US` as a default locale.
+
+`mock` accepts an object with one or more **key-value** proprieties.
+On each propriety, the key is the name of your field and the value is an object containing 2 proprieties:
+
+| Key Name | Type | Required  |
+|-|-|:-:|
+| `type` | String |  ✔ |
+| `params` | Array |  |
+
+See the example below:
+
+
+```json
+{
+  "mock": {
+    "first_name": {
+      "type": "firstName"
+    },
+    "last_name": {
+      "type": "lastName"
+    },
+    "user_code": {
+      "type": "numerify",
+      "params": [
+        'user-####'
+      ]
+    }
+  }
+}
+```
+
+Will output
+
+```json
+{
+    "first_name": "Alan",
+    "last_name": "Hettinger",
+    "user_code": "user-0859"
+}
+```

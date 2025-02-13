@@ -1,0 +1,299 @@
+---
+title: "Date & Time"
+sidebarTitle: "Date & Time"
+---
+## `unixTime`
+
+Generate an [unix time](https://en.wikipedia.org/wiki/Unix_time) between zero, and the given value. By default, `now` is
+used as input.
+
+Optionally, a parameter can be supplied containing a `DateTime`, `int` or `string`.
+
+```json
+{"type": "unixTime"}
+
+// 1605544623, 1025544612
+
+{"type": "unixTime", "params": ['+3 weeks']}
+
+// unix timestamp between 0 and the date 3 weeks from now.
+```
+
+## `dateTime`
+
+Generate a `DateTime` between January 1, 1970, and the given max. By default, `now` is used as max.
+
+Optionally, a parameter can be supplied containing a `DateTime`, `int` or `string`.
+
+An optional second parameter can be supplied, with the timezone.
+
+```json
+{"type": "dateTime"}
+
+// DateTime: August 12, 1991
+```
+
+## `dateTimeAD`
+
+Generate a `DateTime` between January 1, 0001, and the given max. By default, `now` is used as max.
+
+An optional second parameter can be supplied, with the timezone.
+
+```json
+{"type": "dateTimeAD"}
+
+// DateTime: September 19, 718
+```
+
+## `iso8601`
+
+Generate an ISO8601 formatted `string` between January 1, 0001, and the given max. By default, `now` is used as max.
+
+```json
+{"type": "iso8601"}
+```
+
+## `date`
+
+Generate a date `string`, with a given format and max value. By default, `'Y-m-d'` and `'now'` are used for the format
+and maximum value respectively.
+
+```json
+{"type": "date"}
+
+// '1999-06-09'
+
+{"type": "date", "params": ['Y_m_d']}
+
+// '2011_02_19'
+```
+
+## `time`
+
+Generate a time `string`, with a given format and max value. By default, `H:i:s'` and `now` are used for the format and
+maximum value respectively.
+
+```json
+{"type": "time"}
+
+// '12:02:50'
+
+{"type": "time", "params": ['H_i_s']}
+
+// '20_49_12'
+```
+
+## `dateTimeBetween`
+
+Generate a `DateTime` between two dates. By default, `-30 years` and `now` are used.
+
+An optional third parameter can be supplied, with the timezone.
+
+```json
+{"type": "dateTimeBetween"}
+
+// a date between -30 years ago, and now
+
+{"type": "dateTimeBetween", "params": ['-1 week', '+1 week']}
+
+// a date between -1 week ago, and 1 week from now
+```
+
+## `dateTimeInInterval`
+
+Generate a `DateTime` between a date and an interval from that date. By default, the date is set to `-30 years`, and the
+interval is set to `+5 days`.
+
+An optional third parameter can be supplied, with the timezone.
+
+```json
+{"type": "dateTimeInInterval"}
+
+// a date between -30 years ago, and -30 years + 5 days
+
+{"type": "dateTimeInInterval", "params": ['-1 week', '+3 days']}
+
+// a date between -1 week ago, and -1 week + 3 days
+```
+
+## `dateTimeThisCentury`
+
+Generate a `DateTime` that is within the current century. An optional `$max` value can be supplied, by default this is
+set to `now`.
+
+An optional second parameter can be supplied, with the timezone.
+
+```json
+{"type": "dateTimeThisCentury"}
+
+// a date somewhere in this century
+
+{"type": "dateTimeThisCentury", "params": ['+8 years']}
+
+// a date somewhere in this century, with an upper bound of +8 years
+```
+
+## `dateTimeThisDecade`
+
+Generate a `DateTime` that is within the current decade. An optional `$max` value can be supplied, by default this is
+set to `now`.
+
+An optional second parameter can be supplied, with the timezone.
+
+```json
+{"type": "dateTimeThisDecade"}
+
+// a date somewhere in this decade
+
+{"type": "dateTimeThisDecade", "params": ['+2 years']}
+
+// a date somewhere in this decade, with an upper bound of +2 years
+```
+
+## `dateTimeThisYear`
+
+Generate a `DateTime` that is within the current year. An optional `max` value can be supplied, by default this is set
+to `now`.
+
+An optional second parameter can be supplied, with the timezone.
+
+```json
+{"type": "dateTimeThisYear"}
+
+// a date somewhere in this year
+
+{"type": "dateTimeThisYear", "params": ['+2 months']}
+
+// a date somewhere in this year, with an upper bound of +2 months
+```
+
+## `dateTimeThisMonth`
+
+Generate a `DateTime` that is within the current month. An optional `max` value can be supplied, by default this is set
+to `now`.
+
+An optional second parameter can be supplied, with the timezone.
+
+```json
+{"type": "dateTimeThisMonth"}
+
+// a date somewhere in this month
+
+{"type": "dateTimeThisMonth", "params": ['+12 days']}
+
+// a date somewhere in this month, with an upper bound of +12 days
+```
+
+## `amPm`
+
+Generate a random `DateTime`, with a given upper bound, and return the am/pm `string` value. By default, the upper bound
+is set to `now`.
+
+```json
+{"type": "amPm"}
+
+// 'am'
+
+{"type": "amPm", "params": ['+2 weeks']}
+
+// 'pm'
+```
+
+## `dayOfMonth`
+
+Generate a random `DateTime`, with a given upper bound, and return the day of month `string` value. By default, the
+upper bound is set to `now`.
+
+```json
+{"type": "dayOfMonth"}
+
+// '24'
+
+{"type": "dayOfMonth", "params": ['+2 weeks']}
+
+// '05'
+```
+
+## `dayOfWeek`
+
+Generate a random `DateTime`, with a given upper bound, and return the day of week `string` value. By default, the
+upper bound is set to `now`.
+
+```json
+{"type": "dayOfWeek"}
+
+// 'Tuesday'
+
+{"type": "dayOfWeek", "params": ['+2 weeks']}
+
+// 'Friday'
+```
+
+## `month`
+
+Generate a random `DateTime`, with a given upper bound, and return the month's number `string` value. By default, the
+upper bound is set to `now`.
+
+```json
+{"type": "month"}
+
+// '9'
+
+{"type": "month", "params": ['+10 weeks']}
+
+// '7'
+```
+
+## `monthName`
+
+Generate a random `DateTime`, with a given upper bound, and return the month's name `string` value. By default, the
+upper bound is set to `now`.
+
+```json
+{"type": "monthName"}
+
+// 'September'
+
+{"type": "monthName", "params": ['+10 weeks']}
+
+// 'April'
+```
+
+## `year`
+
+Generate a random `DateTime`, with a given upper bound, and return the year's `string` value. By default, the
+upper bound is set to `now`.
+
+```json
+{"type": "year"}
+
+// '1998'
+
+{"type": "year", "params": ['+10 years']}
+
+// '2022'
+```
+
+## `century`
+
+Generate a random century name.
+
+```json
+{"type": "century"}
+
+// 'IX', 'XVII', 'II'
+```
+
+## `timezone`
+
+Generate a random timezone name.
+
+```json
+{"type": "timezone"}
+
+// 'Europe/Amsterdam', 'America/Montreal'
+
+{"type": "timezone", "params": ['US']}
+
+// 'America/New_York', 'America/Los_Angeles'
+```

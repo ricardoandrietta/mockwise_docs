@@ -1,0 +1,262 @@
+---
+title: "Internet"
+sidebarTitle: "Internet"
+---
+## `email`
+
+Generate an email address.
+
+```json
+{"type": "email"}
+
+// 'orval.treutel@blick.com', 'hickle.lavern@erdman.com'
+```
+
+## `safeEmail`
+
+Generate a safe email address.
+
+```json
+{"type": "safeEmail"}
+
+// 'spencer.ricardo@example.com', 'wolf.sabryna@example.org'
+```
+
+## `freeEmail`
+
+Generate a free email address (free, as in, free sign-up).
+
+```json
+{"type": "freeEmail"}
+
+// 'marcelino.hyatt@yahoo.com', 'abby81@gmail.com'
+```
+
+## `companyEmail`
+
+Generate a company email.
+
+```json
+{"type": "companyEmail"}
+
+// 'hschinner@reinger.net', 'paula.blick@hessel.com'
+```
+
+## `freeEmailDomain`
+
+Generate a free email domain name.
+
+```json
+{"type": "freeEmailDomain"}
+
+// 'gmail.com', 'hotmail.com'
+```
+
+## `safeEmailDomain`
+
+Generate a safe email domain.
+
+```json
+{"type": "safeEmailDomain"}
+
+// 'example.net', 'example.org'
+```
+
+## `userName`
+
+Generate a username.
+
+```json
+{"type": "userName"}
+
+// 'ipaucek', 'homenick.alexandre'
+```
+
+## `password`
+
+Generate a password, with a given minimum and maximum length. By default, the values `6` and `20` are used for the
+minimum and maximum respectively.
+
+```json
+{"type": "password"}
+
+// 'dE1U[G$n4g%-Eie[]rn[', '-YCc1t|NSh)U&j6Z'
+
+{"type": "password", "params": [2, 6]}
+
+// 'GK,M|', '/ZG.'
+```
+
+## `domainName`
+
+Generate a domain name.
+
+```json
+{"type": "domainName"}
+
+// 'toy.com', 'schamberger.biz'
+```
+
+## `domainWord`
+
+Generate a domain word.
+
+```json
+{"type": "domainWord"}
+
+// 'feil', 'wintheiser'
+```
+
+## `tld`
+
+Generate a tld (top-level domain).
+
+```json
+{"type": "tld"}
+
+// 'com', 'org'
+```
+
+## `url`
+
+Generate a URL.
+
+```json
+{"type": "url"}
+
+// 'http://cormier.info/eligendi-rem-omnis-quia.html', 'http://pagac.com/'
+```
+
+## `slug`
+
+Generate a slug, with a given amount of words. By default, the amount of words it set to 6.
+
+Optionally, a second parameter can be supplied. When `false`, only slugs with the given amount of words will be
+generated.
+
+```json
+{"type": "slug"}
+
+// 'facere-ipsam-sit-aut-ut-dolorem', 'qui-soluta-sed-facilis-est-ratione-dolor-autem'
+
+{"type": "slug", "params": [2]}
+
+// 'et-et-et', 'temporibus-iure'
+
+{"type": "slug", "params": [3, false]}
+
+// 'ipsa-consectetur-est', 'quia-ad-nihil'
+```
+
+## `ipv4`
+
+Generate an IPv4 address.
+
+```json
+{"type": "ipv4"}
+
+// '90.119.172.201', '84.172.232.19'
+```
+
+## `localIpv4`
+
+Generate an IPv4 address, inside a local subnet.
+
+```json
+{"type": "localIpv4"}
+
+// '192.168.85.208', '192.168.217.138'
+```
+
+## `ipv6`
+
+Generate an IPv6 address.
+
+```json
+{"type": "ipv6"}
+
+// 'c3f3:40ed:6d6c:4e8e:746b:887a:4551:42e5', '1c3d:a2cf:80ad:f2b6:7794:4f3f:f9fb:59cf'
+```
+
+## `macAddress`
+
+Generate a random MAC address.
+
+```json
+{"type": "macAddress"}
+
+// '94:00:10:01:58:07', '0E:E1:48:29:2F:E2'
+```
+
+# User Agent
+
+## `userAgent`
+
+Generate a user agent.
+
+```json
+{"type": "userAgent"}
+
+// 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/5350 (KHTML, like Gecko) Chrome/37.0.806.0 Mobile Safari/5350'
+```
+
+## `chrome`
+
+Generate a user agent that belongs to Google Chrome.
+
+```json
+{"type": "chrome"}
+
+// 'Mozilla/5.0 (Macintosh; PPC Mac OS X 10_8_1) AppleWebKit/5352 (KHTML, like Gecko) Chrome/40.0.848.0 Mobile Safari/5352'
+```
+
+## `firefox`
+
+Generate a user agent that belongs to Mozilla Firefox.
+
+```json
+{"type": "firefox"}
+
+// 'Mozilla/5.0 (X11; Linux i686; rv:7.0) Gecko/20121220 Firefox/35.0'
+```
+
+## `safari`
+
+Generate a user agent that belongs to Apple Safari.
+
+```json
+{"type": "safari"}
+
+// 'Mozilla/5.0 (Macintosh; PPC Mac OS X 10_8_3 rv:5.0; sl-SI) AppleWebKit/532.33.2 (KHTML, like Gecko) Version/5.0 Safari/532.33.2'
+```
+
+## `opera`
+
+Generate a user agent that belongs to Opera.
+
+```json
+{"type": "opera"}
+
+// 'Opera/8.55 (Windows 95; en-US) Presto/2.9.286 Version/11.00'
+```
+
+## `internetExplorer`
+
+Generate a user agent that belongs to Internet Explorer.
+
+```json
+{"type": "internetExplorer"}
+
+// 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 5.0; Trident/5.1)'
+```
+
+
+## `msedge`
+
+Generate a user agent that belongs to Microsoft Ege.
+
+```json
+{"type": "msedge"}
+
+// 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36 Edg/99.0.1150.36'
+```
