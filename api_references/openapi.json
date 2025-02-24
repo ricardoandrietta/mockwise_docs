@@ -93,6 +93,522 @@
           }
         }
       }
+    },
+    "/v1/status/{statusCode}": {
+      "head": {
+        "summary": "HEAD simulation",
+        "deprecated": false,
+        "description": "### Check Status\n\nThis endpoint sends an HTTP HEAD request to the specified URL to check the status of the resource. The `:statusCode` parameter in the URL should be replaced with the actual status code to be checked.\n\n**Request Body**  \nThis request does not require a request body.\n\n**Response Body**  \nThe response will not contain a body, as the HTTP HEAD method is used to retrieve the headers and status of the resource without receiving the actual content.",
+        "tags": [
+          "Status Codes"
+        ],
+        "parameters": [
+          {
+            "name": "statusCode",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "200",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "summary": "GET simulation",
+        "deprecated": false,
+        "description": "### Check Status\n\nThis endpoint sends an HTTP GET request to the specified URL to check the status of the resource. The `:statusCode` parameter in the URL should be replaced with the actual status code to be checked.\n\n**Request Body**  \nThis request does not require a request body.",
+        "tags": [
+          "Status Codes"
+        ],
+        "parameters": [
+          {
+            "name": "statusCode",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "200",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "method": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "message",
+                    "method"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "success": true,
+                      "message": "worked",
+                      "method": "GET"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "method": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "message",
+                    "method"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "success": false,
+                      "message": "The HTTP status code \"700\" is not valid.",
+                      "method": "GET"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        }
+      },
+      "delete": {
+        "summary": "DELETE simulation",
+        "deprecated": false,
+        "description": "### Check Status\n\nThis endpoint sends an HTTP DELETE request to the specified URL to check the status of the resource. The `:statusCode` parameter in the URL should be replaced with the actual status code to be checked.\n\n**Request Body**  \nThis request does not require a request body.",
+        "tags": [
+          "Status Codes"
+        ],
+        "parameters": [
+          {
+            "name": "statusCode",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "200",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "method": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "message",
+                    "method"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "success": true,
+                      "message": "worked",
+                      "method": "GET"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "method": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "message",
+                    "method"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "success": false,
+                      "message": "The HTTP status code \"700\" is not valid.",
+                      "method": "GET"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "POST simulation",
+        "deprecated": false,
+        "description": "### Check Status\n\nThis endpoint sends an HTTP POST request to the specified URL to check the status of the resource. The `:statusCode` parameter in the URL should be replaced with the actual status code to be checked.\n\n**Request Body**  \nThis request does not require a request body.",
+        "tags": [
+          "Status Codes"
+        ],
+        "parameters": [
+          {
+            "name": "statusCode",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "200",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "method": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "message",
+                    "method"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "success": true,
+                      "message": "worked",
+                      "method": "POST"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "method": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "message",
+                    "method"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "success": false,
+                      "message": "The HTTP status code \"700\" is not valid.",
+                      "method": "POST"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        }
+      },
+      "put": {
+        "summary": "PUT simulation",
+        "deprecated": false,
+        "description": "### Check Status\n\nThis endpoint sends an HTTP PUT request to the specified URL to check the status of the resource. The `:statusCode` parameter in the URL should be replaced with the actual status code to be checked.\n\n**Request Body**  \nThis request does not require a request body.",
+        "tags": [
+          "Status Codes"
+        ],
+        "parameters": [
+          {
+            "name": "statusCode",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "200",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "method": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "message",
+                    "method"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "success": true,
+                      "message": "worked",
+                      "method": "PUT"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "method": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "message",
+                    "method"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "success": false,
+                      "message": "The HTTP status code \"700\" is not valid.",
+                      "method": "PUT"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        }
+      },
+      "patch": {
+        "summary": "PATCH simulation",
+        "deprecated": false,
+        "description": "### Check Status\n\nThis endpoint sends an HTTP PATCH request to the specified URL to check the status of the resource. The `:statusCode` parameter in the URL should be replaced with the actual status code to be checked.\n\n**Request Body**  \nThis request does not require a request body.",
+        "tags": [
+          "Status Codes"
+        ],
+        "parameters": [
+          {
+            "name": "statusCode",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "example": "200",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "method": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "message",
+                    "method"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "success": true,
+                      "message": "worked",
+                      "method": "PUT"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "method": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "message",
+                    "method"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Exception",
+                    "value": {
+                      "success": false,
+                      "message": "The HTTP status code \"700\" is not valid.",
+                      "method": "PATCH"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {}
+          }
+        }
+      }
     }
   },
   "components": {
@@ -165,6 +681,10 @@
     {
       "name": "Mock Generation",
       "description": "Endpoints for generating mock data"
+    },
+    {
+      "name": "Status Codes",
+      "description": "Endpoints simulating HTTP status codes"
     }
   ]
 }
